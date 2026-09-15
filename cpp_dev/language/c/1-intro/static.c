@@ -65,10 +65,28 @@
 // }
 
 // static 修饰函数
-void test();
+// void test();
 
-int main() {
-	test();
+// int main() {
+// 	test();
 
-	return 0;
+// 	return 0;
+// }
+
+#include <stdio.h>
+
+void normal(void) {
+    int count = 0;
+    printf("normal: %d\n", ++count);
+}
+
+void persistent(void) {
+    static int count = 0;
+    printf("static: %d\n", ++count);
+}
+
+int main(void) {
+    normal(); normal(); normal();
+    persistent(); persistent(); persistent();
+    return 0;
 }
